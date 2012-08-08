@@ -1,0 +1,5 @@
+<phpunit bootstrap="../src/boot.php" colors="true">
+    <testsuite name="brasil-utils">
+        <directory>./</directory>
+    </testsuite>
+</phpunit>
