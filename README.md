@@ -1,7 +1,7 @@
 O que é o brasil-utils?
 ============
 
-O **brasil-utils** é uma biblioteca **PHP** com um conjunto de classes utilitárias para validações e 
+O **brasil-utils** é uma biblioteca **PHP** com classes utilitárias para validações e 
 formatações comuns no Brasil, como: CPF, CNPJ, CEP, Telefone, Celular, etc.
 
 **Testes**: As classes do **brasil-utils** possuem testes de unidade utilizando framework PhpUnit, o que torna o 
@@ -15,4 +15,7 @@ Requisitos
 Instalação
 ----------
 
-* Apenas inclua o arquivo ***src/boot.php*** no seu projeto e pronto!
+* Baixe o projeto **[brasil-utils][1]** para o seu computador.
+* Inclua o arquivo ***brasil-utils/src/boot.php*** no seu projeto e pronto!
+
+[1]: https://github.com/gabrielfs7/brasil-utils/zipball/master
