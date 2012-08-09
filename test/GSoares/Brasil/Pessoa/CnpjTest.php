@@ -1,5 +1,5 @@
 <?php
-use \GSoares\Brasil\Pessoa\CnpInvalidoException;
+use \GSoares\Brasil\Pessoa\DocumentoInvalidoException;
 use \GSoares\Brasil\Pessoa\Cnpj;
 
 /**
@@ -13,7 +13,7 @@ class CnpjTest extends PHPUnit_Framework_TestCase
 	 * Tests Cnpj->__construct()
 	 * 
 	 * @param string $cnpj
-	 * @dataProvider CnpjValidoProvider
+	 * @dataProvider cnpjValidoProvider
 	 */
 	public function testCnpjValidoNaoLancaExcecao($cnpj)
 	{
@@ -24,8 +24,8 @@ class CnpjTest extends PHPUnit_Framework_TestCase
 	 * Tests Cnpj->__construct()
 	 * 
 	 * @param string $cnpj
-	 * @dataProvider CnpjInvalidoProvider
-	 * @expectedException GSoares\Brasil\Pessoa\CnpInvalidoException
+	 * @dataProvider cnpjInvalidoProvider
+	 * @expectedException GSoares\Brasil\Pessoa\DocumentoInvalidoException
 	 */
 	public function testCnpjInvalidoLancaExcecao($cnpj)
 	{
@@ -55,7 +55,7 @@ class CnpjTest extends PHPUnit_Framework_TestCase
 	/**
 	 * @return string[]
 	 */
-	public function CnpjInvalidoProvider()
+	public function cnpjInvalidoProvider()
 	{
 		return array(
 			array('99.655.333/1111-99'),
@@ -68,7 +68,7 @@ class CnpjTest extends PHPUnit_Framework_TestCase
 	/**
 	 * @return string[]
 	 */
-	public function CnpjValidoProvider()
+	public function cnpjValidoProvider()
 	{
 		return array(
 			array('27.687.164/0001-95'),

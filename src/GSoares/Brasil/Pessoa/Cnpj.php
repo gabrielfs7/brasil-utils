@@ -38,7 +38,7 @@ class Cnpj extends Cnp implements NumeroFormatavel
 			$this->cnp == 77777777777777 || 
 			$this->cnp == 88888888888888 ||  
 			$this->cnp == 99999999999999) {
- 			throw new CnpInvalidoException('CNPJ ' . $this->cnp . ' inválido.');
+ 			throw new DocumentoInvalidoException('CNPJ ' . $this->cnp . ' inválido.');
 		}
 
 		$soma = 0;
@@ -77,7 +77,7 @@ class Cnpj extends Cnp implements NumeroFormatavel
 		$d2 = $d2 < 2 ? 0 : 11 - $d2;
 		
 		if ($this->cnp[12] != $d1 && $this->cnp[13] != $d2) {
-			throw new CnpInvalidoException('CNPJ ' . $this->cnp . ' inválido.');
+			throw new DocumentoInvalidoException('CNPJ ' . $this->cnp . ' inválido.');
 		}
 	}
 }

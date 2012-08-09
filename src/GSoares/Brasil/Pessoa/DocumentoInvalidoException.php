@@ -6,6 +6,6 @@ namespace GSoares\Brasil\Pessoa;
  * @subpackage Pessoa
  * @author Gabriel Felipe Soares <gabrielfs7@gmail.com>
  */
-class CnpInvalidoException extends \InvalidArgumentException
+class DocumentoInvalidoException extends \InvalidArgumentException
 {
 }

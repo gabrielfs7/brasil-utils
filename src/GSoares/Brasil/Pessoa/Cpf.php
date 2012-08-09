@@ -37,7 +37,7 @@ class Cpf extends Cnp implements NumeroFormatavel
 			$this->cnp == 77777777777 || 
 			$this->cnp == 88888888888 ||  
 			$this->cnp == 99999999999) {
- 			throw new CnpInvalidoException('CPF ' . $this->cnp . ' inválido.');
+ 			throw new DocumentoInvalidoException('CPF ' . $this->cnp . ' inválido.');
 		}
 		
 		$soma = 0;
@@ -65,7 +65,7 @@ class Cpf extends Cnp implements NumeroFormatavel
 		}
 		
 		if ($d1 != $this->cnp[9] && $d2 != $this->cnp[10]) {
-			throw new CnpInvalidoException('CPF ' . $this->cnp . ' inválido.');
+			throw new DocumentoInvalidoException('CPF ' . $this->cnp . ' inválido.');
 		}
 	}
 }

@@ -1,5 +1,5 @@
 <?php
-use \GSoares\Brasil\Pessoa\CnpInvalidoException;
+use \GSoares\Brasil\Pessoa\DocumentoInvalidoException;
 use \GSoares\Brasil\Pessoa\Cpf;
 
 /**
@@ -25,7 +25,7 @@ class CpfTest extends PHPUnit_Framework_TestCase
 	 * 
 	 * @param string $cpf
 	 * @dataProvider CpfInvalidoProvider
-	 * @expectedException GSoares\Brasil\Pessoa\CnpInvalidoException
+	 * @expectedException GSoares\Brasil\Pessoa\DocumentoInvalidoException
 	 */
 	public function testCpfInvalidoLancaExcecao($cpf)
 	{

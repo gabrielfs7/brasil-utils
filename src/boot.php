@@ -3,10 +3,12 @@
 require_once 'GSoares\Brasil\NumeroFormatavel.php';
 
 //Documentos
-require_once 'GSoares\Brasil\Pessoa\CnpInvalidoException.php';
+require_once 'GSoares\Brasil\Pessoa\DocumentoInvalidoException.php';
 require_once 'GSoares\Brasil\Pessoa\Cnp.php';
 require_once 'GSoares\Brasil\Pessoa\Cnpj.php';
 require_once 'GSoares\Brasil\Pessoa\Cpf.php';
+require_once 'GSoares\Brasil\Pessoa\Rg.php';
+require_once 'GSoares\Brasil\Pessoa\Pis.php';
 
 //Telefone
 require_once 'GSoares\Brasil\Telefone\TelefoneInvalidoException.php';

@@ -4,6 +4,10 @@ namespace GSoares\Brasil\Telefone;
 use \GSoares\Brasil\NumeroFormatavel;
 
 /**
+ * Esta classe permite a validação e formatação de telefone celular: 
+ * - Validação de DDD
+ * - Validação de celular com 9 digitos segundo a nova regulamentação da ANATEL
+ * 
  * @package Brasil
  * @subpackage Telefone
  * @author Gabriel Felipe Soares <gabrielfs7@gmail.com>

@@ -23,7 +23,7 @@ abstract class Cnp implements NumeroFormatavel
 		$this->cnp = preg_replace('/[^0-9]/', '', $cnp);
 		
 		if (!in_array(strlen($this->cnp), array(11, 14))) {
-			throw new CnpInvalidoException(
+			throw new DocumentoInvalidoException(
 				'CPF/CNPJ deve ter 11 ou 14 caracteres.'
 			);
 		}

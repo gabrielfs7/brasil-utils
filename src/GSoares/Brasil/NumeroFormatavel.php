@@ -8,14 +8,14 @@ namespace GSoares\Brasil;
 interface NumeroFormatavel
 {
 	/**
-	 * Returns non-formatted value
+	 * Retorna o valor sem formatação
 	 * 
 	 * @return string
 	 */
 	public function numero();
 
 	/**
-	 * Returns the formatted number
+	 * Retorna o valor formatado
 	 * 
 	 * @return string
 	 */
