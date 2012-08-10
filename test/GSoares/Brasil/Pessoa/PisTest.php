@@ -35,6 +35,9 @@ class PisTest extends PHPUnit_Framework_TestCase
 	 */
 	public function testNumero()
 	{
+		$pis = new Pis('125.04389.16-9');
+		
+		$this->assertEquals($pis->numero(), '12504389169');
 	}
 
 	/**
@@ -42,6 +45,9 @@ class PisTest extends PHPUnit_Framework_TestCase
 	 */
 	public function testFormata()
 	{
+		$pis = new Pis('12504389169');
+		
+		$this->assertEquals($pis, '125.04389.16-9');
 	}
 	
 	/**

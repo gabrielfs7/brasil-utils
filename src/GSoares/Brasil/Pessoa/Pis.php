@@ -72,6 +72,8 @@ class Pis implements NumeroFormatavel
 			$digito = ((10 * $digito) % 11) % 10;
 		
 			if ($pis[$c] == $digito) {
+				$this->pis = $pis;
+				
 				return;
 			}
 		}
