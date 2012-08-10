@@ -2,7 +2,15 @@ O que é o brasil-utils?
 ============
 
 O **brasil-utils** é uma biblioteca **PHP** com classes utilitárias para validações e 
-formatações comuns no Brasil, como: CPF, CNPJ, CEP, Telefone, Celular, etc.
+formatações comuns no Brasil, como: 
+
+* CPF.
+* CNPJ.
+* RG.
+* PIS.
+* CEP.
+* Telefone Fixo.
+* Celular.
 
 **Testes**: As classes do **brasil-utils** possuem testes de unidade utilizando framework PhpUnit, o que torna o 
 código mais confiável.
