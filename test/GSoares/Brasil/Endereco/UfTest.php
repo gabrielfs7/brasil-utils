@@ -1,4 +1,5 @@
 <?php
+use \GSoares\Brasil\Endereco\EnderecoInvalidoException;
 use \GSoares\Brasil\Endereco\Uf;
 
 /**
@@ -10,19 +11,22 @@ class UfTest extends PHPUnit_Framework_TestCase
 {
 	/**
 	 * Tests Uf::exists()
-	 * @dataProvider ufProvider
+	 * @expectedException \GSoares\Brasil\Endereco\EnderecoInvalidoException
 	 */
-	public function testSeUfExisteRetornaTrue($uf)
+	public function testeConstrutorLancaExceptionSeUfForInvalida()
 	{
-		$this->assertTrue(Uf::existe($uf));
+		$uf = new Uf('SS');
 	}
 	
 	/**
 	 * Tests Uf::exists()
+	 * @dataProvider ufProvider
 	 */
-	public function testSeUfNaoExisteRetornaFalse()
+	public function testeConstrutorSetaUfCorretamente($uf)
 	{
-		$this->assertFalse(Uf::existe('BB'));
+		$objUf = new Uf($uf);
+		
+		$this->assertEquals($objUf->getUf(), $uf);
 	}
 	
 	/**

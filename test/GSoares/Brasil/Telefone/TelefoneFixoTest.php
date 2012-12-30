@@ -27,7 +27,7 @@ class TelefoneFixoTest extends PHPUnit_Framework_TestCase
 	 * @dataProvider TelefoneFixoInvalidoProvider
 	 * @expectedException GSoares\Brasil\Telefone\TelefoneInvalidoException
 	 */
-	public function testTelefoneFixoValidoLancaExcecao($telefone)
+	public function testTelefoneFixoInvalidoLancaExcecao($telefone)
 	{
 		$telefone = new TelefoneFixo($telefone);
 	}

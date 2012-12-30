@@ -64,12 +64,13 @@ abstract class Telefone implements NumeroFormatavel
 		$this->numeroTelefone = $number;
 		
 		if (!in_array($this->DDD(), $this->DDDsValidos())) {
+			$this->numeroTelefone = null;
+			
 			throw new TelefoneInvalidoException(
 				'DDD ' . $this->DDD() . ' não existe.'
 			);
 		}
 	}
-	
 	
 	/**
 	 * @return int[] 
