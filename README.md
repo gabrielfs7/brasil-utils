@@ -13,6 +13,9 @@ formatações comuns no Brasil, como:
 * Telefone Fixo (Incluindo validação de DDD).
 * Celular (Incluindo validação de DDD e celulares com 9 números).
 * Placa de Veículo (Opcionalmente, com validação por estado).
+ 
+
+E muitas outras classes utilitárias! Visite a **[página do projeto][2]** para mais informações.
 
 **Testes**: As classes do **brasil-utils** possuem testes de unidade utilizando framework PhpUnit, o que torna o 
 código mais confiável.
@@ -29,3 +32,4 @@ Instalação
 * Inclua o arquivo ***brasil-utils/src/boot.php*** no seu projeto e pronto!
 
 [1]: https://github.com/gabrielfs7/brasil-utils/zipball/master
+[2]: http://gabrielfs7.github.com/brasil-utils/ 
