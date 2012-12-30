@@ -78,9 +78,7 @@ class Cep implements NumeroFormatavel
 	 */
 	protected function validaUf($uf)
 	{
-		if (!Uf::existe($uf)) {
-			throw new EnderecoInvalidoException('UF ' . $uf . ' inválida.');
-		}
+		$ufExiste = new Uf($uf);
 		
 		$cepIni = substr($this->cep, 0, 3);
 		

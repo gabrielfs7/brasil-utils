@@ -144,10 +144,43 @@ class Uf
 	const RS = 'RS';
 	
 	/**
+	 * @var string
+	 */
+	protected $uf;
+	
+	/**
+	 * @param string $uf
+	 */
+	public function __construct($uf)
+	{
+		if (!$this->existe($uf)) {
+			throw new EnderecoInvalidoException('A UF ' . $uf . ' não existe');
+		}
+		
+		$this->uf = $uf;
+	}
+	
+	/**
+	 * @return string
+	 */
+	public function getUf()
+	{
+		return $this->uf;
+	}
+	
+	/**
+	 * @return string
+	 */
+	public function __toString()
+	{
+		return $this->uf;
+	}
+	
+	/**
 	 * @param string $uf
 	 * @return boolean
 	 */
-	public static function existe($uf)
+	protected function existe($uf)
 	{
 		$ufs = array(
 			self::SP,
