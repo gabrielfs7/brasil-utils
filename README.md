@@ -8,9 +8,11 @@ formatações comuns no Brasil, como:
 * CNPJ.
 * RG.
 * PIS.
-* CEP.
+* CEP (por estado).
+* UF.
 * Telefone Fixo.
 * Celular.
+* Placa de Veículo (Opcional, validação por estado).
 
 **Testes**: As classes do **brasil-utils** possuem testes de unidade utilizando framework PhpUnit, o que torna o 
 código mais confiável.
