@@ -25,11 +25,7 @@ Requisitos
 
 * PHP 5.3+
 
-Instalação
+Instalação (composer)
 ----------
 
-* Baixe o projeto **[brasil-utils][1]** para o seu computador.
-* Inclua o arquivo ***brasil-utils/src/boot.php*** no seu projeto e pronto!
-
-[1]: https://github.com/gabrielfs7/brasil-utils/zipball/master
-[2]: http://gabrielfs7.github.com/brasil-utils/ 
+* https://packagist.org/packages/gabrielfs7/brasil-utils
