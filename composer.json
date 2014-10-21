@@ -1,0 +1,29 @@
+
+{
+    "name": "gabrielfs7/brasil-utils",
+    "description": "Validate brasilian documents",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gabriel Felipe Soares",
+            "email": "gabrielfs7@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5"
+    },
+    "require-dev" : {
+        "phpunit/phpunit" : "4.0.x"
+    },
+    "autoload": {
+        "psr-4": {
+            "GSoares\\Brasil\\": "src/"
+        },
+        "psr-0": { 
+            "GSoares\\Brasil\\": "src/"
+        }
+    },
+    "config": {
+        "bin-dir": "bin"
+    }
+}
