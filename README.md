@@ -15,15 +15,10 @@ formatações comuns no Brasil, como:
 * Placa de Veículo (Opcionalmente, com validação por estado).
  
 
-E muitas outras classes utilitárias! Visite a **[página do projeto][2]** para mais informações.
+E muitas outras classes utilitárias! Visite a **http://gabrielfs7.github.io/brasil-utils/** para mais informações.
 
 **Testes**: As classes do **brasil-utils** possuem testes de unidade utilizando framework PhpUnit, o que torna o 
 código mais confiável.
-
-Página web
-----------
-
-http://gabrielfs7.github.io/brasil-utils/
 
 Requisitos
 ----------
