@@ -1,13 +1,10 @@
 <?php
-use \GSoares\Brasil\Endereco\EnderecoInvalidoException;
-use \GSoares\Brasil\Endereco\Uf;
+namespace GSoares\Brasil\Endereco;
 
 /**
- * Uf test case.
- * 
  * @author Gabriel Felipe Soares <gabrielfs7@gmail.com>
  */
-class UfTest extends PHPUnit_Framework_TestCase
+class UfTest extends \PHPUnit_Framework_TestCase
 {
 	/**
 	 * Tests Uf::exists()
@@ -64,4 +61,32 @@ class UfTest extends PHPUnit_Framework_TestCase
 			array(Uf::RS)
 		);
 	}
+
+    /**
+     * @param $uf
+     * @param $cep
+     * @dataProvider ufPorCepProvider
+     */
+    public function testUfPorCep($uf, $cep)
+    {
+        $this->assertEquals($uf, Uf::getUfPorCep($cep));
+    }
+
+    /**
+     * @return array
+     */
+    public function ufPorCepProvider()
+    {
+        $out = [];
+
+        foreach (Cep::getIntervalosDeCep() as $uf => $intervalosCep) {
+            foreach ($intervalosCep as $intervalo) {
+                foreach ($intervalo as $cep) {
+                    $out[] = array_merge([$uf], [$cep]);
+                }
+            }
+        }
+
+        return $out;
+    }
 }

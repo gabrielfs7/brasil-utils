@@ -150,6 +150,7 @@ class Uf
 	
 	/**
 	 * @param string $uf
+     * @throws EnderecoInvalidoException
 	 */
 	public function __construct($uf)
 	{
@@ -167,7 +168,29 @@ class Uf
 	{
 		return $this->uf;
 	}
-	
+
+    /**
+     * @param $cep
+     * @return string
+     * @throws EnderecoInvalidoException
+     */
+    public static function getUfPorCep($cep)
+    {
+        foreach (Cep::getIntervalosDeCep() as $uf => $intervalos) {
+            foreach ($intervalos as $ceps) {
+                $prefixoCep = substr($cep, 0, 3);
+                $prefixoInicial = substr($ceps[0], 0, 3);
+                $prefixoFinal = substr($ceps[1], 0, 3);
+
+                if ($prefixoCep >= $prefixoInicial && $prefixoCep <= $prefixoFinal) {
+                    return $uf;
+                }
+            }
+        }
+
+        throw new EnderecoInvalidoException('O CEP ' . $cep . ' não pertence a nenhum estado.');
+    }
+
 	/**
 	 * @return string
 	 */

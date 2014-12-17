@@ -71,9 +71,9 @@ class CepTest extends PHPUnit_Framework_TestCase
 	public function cepInvalidoProvider()
 	{
 		return array(
-			array('99912345', '99912-345', Uf::SP),
-			array('9991234', '99912-34', null),
-			array('00988888', '00988-888', null)
+			array('99912345', Uf::SP),
+			array('9991234', null),
+			array('00988888', null)
 		);
 	}
 	/**
@@ -135,11 +135,12 @@ class CepTest extends PHPUnit_Framework_TestCase
 		
 			array('69912345', Uf::AC),
 		
-			array('70012345', Uf::DF),
-			array('76912345', Uf::DF),
-			array('70012345', Uf::GO),
-			array('76912345', Uf::GO),
-		
+			array('70000000', Uf::DF),
+			array('72799999', Uf::DF),
+
+			array('76799999', Uf::GO),
+			array('72800000', Uf::GO),
+
 			array('77012345', Uf::TO),
 			array('77912345', Uf::TO),
 		
@@ -149,7 +150,7 @@ class CepTest extends PHPUnit_Framework_TestCase
 			array('79012345', Uf::MS),
 			array('79912345', Uf::MS),
 		
-			array('78912345', Uf::RO),
+			array('76812345', Uf::RO),
 		
 			array('80012345', Uf::PR),
 			array('87912345', Uf::PR),
