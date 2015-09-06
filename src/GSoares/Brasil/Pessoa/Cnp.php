@@ -46,6 +46,16 @@ abstract class Cnp implements NumeroFormatavel
 	{
 		return $this->formata();
 	}
-	
-	protected abstract function valida();
+
+    protected function validaNumerosConhecidos()
+    {
+        $regex = "/^".$this->cnp[0]."{".$this->getQuantidadeDigitos()."}$/";
+        if (strlen($this->cnp) != $this->getQuantidadeDigitos() || preg_match($regex, $this->cnp)) {
+            throw new DocumentoInvalidoException(sprintf('%s %s inválido.', get_class($this), $this->cnp));
+        }
+    }
+
+    protected abstract function valida();
+
+    protected abstract function getQuantidadeDigitos();
 }

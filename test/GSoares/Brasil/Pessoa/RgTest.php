@@ -1,5 +1,4 @@
 <?php
-use \GSoares\Brasil\Pessoa\DocumentoInvalidoException;
 use \GSoares\Brasil\Pessoa\Rg;
 
 /**
@@ -15,7 +14,7 @@ class RgTest extends PHPUnit_Framework_TestCase
 	 */
 	public function testRgValidoNaoDeveLancarException($rg)
 	{
-		$rg = new Rg($rg);		
+		new Rg($rg);
 	}
 	
 	/**
@@ -27,7 +26,7 @@ class RgTest extends PHPUnit_Framework_TestCase
 	 */
 	public function testRgInvalidoDeveLancarException($rg)
 	{
-		$rg = new Rg($rg);
+		new Rg($rg);
 	}
 
 	/**
