@@ -12,9 +12,24 @@ class UfTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testeConstrutorLancaExceptionSeUfForInvalida()
 	{
-		$uf = new Uf('SS');
+		new Uf('SS');
 	}
-	
+
+    /**
+     * @expectedException \GSoares\Brasil\Endereco\EnderecoInvalidoException
+     */
+    public function testaCepInvalidoLancaException()
+    {
+        $uf = new Uf('SC');
+        $uf->getUfPorCep('00000001');
+    }
+
+    public function testaMetodoToString()
+    {
+        $uf = new Uf('PR');
+        $this->assertEquals('PR', $uf);
+    }
+
 	/**
 	 * Tests Uf::exists()
 	 * @dataProvider ufProvider

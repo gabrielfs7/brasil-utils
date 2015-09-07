@@ -29,6 +29,14 @@ class RgTest extends PHPUnit_Framework_TestCase
 		new Rg($rg);
 	}
 
+    /**
+     * @expectedException GSoares\Brasil\Pessoa\DocumentoInvalidoException
+     */
+    public function testRgComMuitosDigitos()
+    {
+        new Rg('AB-123654789654123555555555555444');
+    }
+
 	/**
 	 * Tests Rg->numero()
 	 */
@@ -48,9 +56,18 @@ class RgTest extends PHPUnit_Framework_TestCase
 		
 		$this->assertEquals('MG-4.032.894-40', $rg->formata());
 	}
-	
+
+    /**
+     * Tests Rg->formata()
+     */
+    public function testToString()
+    {
+        $rg = new Rg('MG-4.032.894-40');
+        $this->assertEquals('MG-4.032.894-40', $rg);
+    }
+
 	/**
-	 * @return multitype:multitype:string  
+	 * @return mixed
 	 */
 	public function rgInvalidoProvider()
 	{
@@ -63,7 +80,7 @@ class RgTest extends PHPUnit_Framework_TestCase
 	}
 	
 	/**
-	 * @return multitype:multitype:string  
+	 * @return mixed
 	 */
 	public function rgValidoProvider()
 	{

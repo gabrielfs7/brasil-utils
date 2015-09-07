@@ -15,13 +15,6 @@ class TelefoneFixo extends Telefone implements NumeroFormatavel
 	 */
 	protected function valida()
 	{
-		if (strlen($this->numeroTelefone) !== 10) {
-			throw new TelefoneInvalidoException(
-				'O telefone ' . $this->numeroTelefone . 
-				' deve possuir 10 números.'
-			);
-		}
-		
 		if (!in_array(substr($this->numeroTelefone, 2, 1), array(2, 3, 4, 5))) {
 			throw new TelefoneInvalidoException(
 				'Telefone ' . $this->numeroTelefone . ' inválido.'

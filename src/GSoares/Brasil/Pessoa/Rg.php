@@ -69,10 +69,6 @@ class Rg implements NumeroFormatavel
 			throw new DocumentoInvalidoException('Rg ' . $rg . ' inválido.');
 		}
 		
-		if (strlen($rg) > 15) {
-			throw new DocumentoInvalidoException('Rg ' . $rg . ' inválido.');
-		}
-		
 		if (preg_match('/[a-zA-Z]{3,}/', $rgLimpo)) {
 			throw new DocumentoInvalidoException('Rg ' . $rg . ' inválido.');
 		}
