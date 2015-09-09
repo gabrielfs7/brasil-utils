@@ -66,6 +66,7 @@ class Cep implements NumeroFormatavel
     }
 
     /**
+     * @codeCoverageIgnore
      * @return array
      * @throws EnderecoInvalidoException
      */

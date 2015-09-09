@@ -29,9 +29,24 @@ class CepTest extends PHPUnit_Framework_TestCase
 	 */
 	public function testCepValidoNaoLancaExcecao($cep, $uf)
 	{
-		$cep = new Cep($cep, $uf);
+		new Cep($cep, $uf);
 	}
-	
+
+    /**
+     * @expectedException GSoares\Brasil\Endereco\EnderecoInvalidoException
+     */
+    public function testUfInexistenteRetornaException()
+    {
+        $cep = new Cep('88888888');
+        $cep->getIntervalosDeCepPorUf('XY');
+    }
+
+    public function testUfExistenteRetornaCorretamente()
+    {
+        $cep = new Cep('88000000');
+        $this->assertEquals([[69900000, 69999999]], $cep->getIntervalosDeCepPorUf('AC'));
+    }
+
 	/**
 	 * Tests Cep->__construct()
 	 * 
@@ -42,7 +57,7 @@ class CepTest extends PHPUnit_Framework_TestCase
 	 */
 	public function testCepInvalidoLancaExcecao($cep, $uf)
 	{
-		$cep = new Cep($cep, $uf);
+		new Cep($cep, $uf);
 	}
 	
 	/**

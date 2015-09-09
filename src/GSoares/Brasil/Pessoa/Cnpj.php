@@ -27,19 +27,7 @@ class Cnpj extends Cnp implements NumeroFormatavel
 	 */
 	public function valida()
 	{
-		if (strlen($this->cnp) != 14 ||
-			$this->cnp == 00000000000000 ||
-			$this->cnp == 11111111111111 ||
-			$this->cnp == 22222222222222 ||
-			$this->cnp == 33333333333333 ||
-			$this->cnp == 44444444444444 || 
-			$this->cnp == 55555555555555 ||
-			$this->cnp == 66666666666666 ||
-			$this->cnp == 77777777777777 || 
-			$this->cnp == 88888888888888 ||  
-			$this->cnp == 99999999999999) {
- 			throw new DocumentoInvalidoException('CNPJ ' . $this->cnp . ' inválido.');
-		}
+        $this->validaNumerosConhecidos();
 
 		$soma = 0;
 		$soma += ($this->cnp[0] * 5);
@@ -80,4 +68,12 @@ class Cnpj extends Cnp implements NumeroFormatavel
 			throw new DocumentoInvalidoException('CNPJ ' . $this->cnp . ' inválido.');
 		}
 	}
+
+    /**
+     * @return int
+     */
+    protected function getQuantidadeDigitos()
+    {
+        return 14;
+    }
 }
