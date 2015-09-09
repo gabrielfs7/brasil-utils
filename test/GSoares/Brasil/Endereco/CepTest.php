@@ -15,9 +15,7 @@ class CepTest extends PHPUnit_Framework_TestCase
 	 */
 	public function test__construct()
 	{
-		$cep = new Cep('01012345');
-		
-		$this->assertEquals($cep, '01012-345');
+		$this->assertEquals(new Cep('01012345'), '01012-345');
 	}
 	
 	/**

@@ -26,9 +26,8 @@ class Cpf extends Cnp implements NumeroFormatavel
 	 */
 	protected function valida()
 	{
-        $this->validaNumerosConhecidos();
-
 		$soma = 0;
+
 		for ($i = 0; $i < 9; $i++) {
 		   $soma += (($i+1) * $this->cnp[$i]);
 		}
@@ -52,14 +51,14 @@ class Cpf extends Cnp implements NumeroFormatavel
 		}
 		
 		if ($d1 != $this->cnp[9] && $d2 != $this->cnp[10]) {
-			throw new DocumentoInvalidoException('CPF ' . $this->cnp . ' inválido.');
+			throw new DocumentoInvalidoException("CPF {$this->cnp} inválido.");
 		}
 	}
 
     /**
      * @return int
      */
-    protected function getQuantidadeDigitos()
+    protected function getQuantidadeNumeros()
     {
         return 11;
     }

@@ -17,7 +17,7 @@ class CpfTest extends PHPUnit_Framework_TestCase
 	 */
 	public function testCpfValidoNaoLancaExcecao($cpf)
 	{
-		$cpf = new Cpf($cpf);
+		new Cpf($cpf);
 	}
 
 	/**
@@ -29,7 +29,7 @@ class CpfTest extends PHPUnit_Framework_TestCase
 	 */
 	public function testCpfInvalidoLancaExcecao($cpf)
 	{
-		$cpf = new Cpf($cpf);
+		new Cpf($cpf);
 	}
 
 	/**

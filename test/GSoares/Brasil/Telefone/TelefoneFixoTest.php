@@ -38,24 +38,16 @@ class TelefoneFixoTest extends PHPUnit_Framework_TestCase
 	public function testObtemSomenteNumeros()
 	{
         $telefone = new TelefoneFixo('(48) 3222-2222');
+
 		$this->assertEquals($telefone->numero(), '4832222222');
 	}
 
     /**
      * Tests TelefoneFixo->toString
      */
-    public function testComNumeroJaFormatado()
+    public function testToStringDeveRetornarNumeroFormatado()
     {
-        $telefone = new TelefoneFixo('(48) 3222-1111');
-        $this->assertEquals('(48) 3222-1111', $telefone);
-    }
-
-    /**
-     * @expectedException GSoares\Brasil\Telefone\TelefoneInvalidoException
-     */
-    public function testeDigitosSobrando()
-    {
-        new TelefoneFixo('4833331115555');
+        $this->assertEquals('(48) 3222-1111', new TelefoneFixo('(48) 3222-1111'));
     }
 
 	/**
@@ -81,7 +73,8 @@ class TelefoneFixoTest extends PHPUnit_Framework_TestCase
 			array('(48) 1622-2222'),
 			array('(00) 9922-2222'),
 			array('(11) 552-2222'),
-			array('115522222')
+			array('115522222'),
+            array('4833331115555')
 		);
 	}
 	

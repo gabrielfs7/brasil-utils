@@ -21,13 +21,8 @@ abstract class Cnp implements NumeroFormatavel
 	public function __construct($cnp)
 	{
 		$this->cnp = preg_replace('/[^0-9]/', '', $cnp);
-		
-		if (!in_array(strlen($this->cnp), array(11, 14))) {
-			throw new DocumentoInvalidoException(
-				'CPF/CNPJ deve ter 11 ou 14 caracteres.'
-			);
-		}
-		
+
+        $this->validaNumerosConhecidos();
 		$this->valida();
 	}
 	
@@ -47,15 +42,29 @@ abstract class Cnp implements NumeroFormatavel
 		return $this->formata();
 	}
 
-    protected function validaNumerosConhecidos()
+    /**
+     * @throws DocumentoInvalidoException
+     */
+    private function validaNumerosConhecidos()
     {
-        $regex = "/^".$this->cnp[0]."{".$this->getQuantidadeDigitos()."}$/";
-        if (strlen($this->cnp) != $this->getQuantidadeDigitos() || preg_match($regex, $this->cnp)) {
+        if (strlen($this->cnp) !== $this->getQuantidadeNumeros()) {
+            throw new DocumentoInvalidoException("CPF/CNPJ {$this->cnp} deve ter 11 ou 14 caracteres.");
+        }
+
+        $regex = "/^" . $this->cnp[0] . "{" . $this->getQuantidadeNumeros() . "}$/";
+
+        if (strlen($this->cnp) != $this->getQuantidadeNumeros() || preg_match($regex, $this->cnp)) {
             throw new DocumentoInvalidoException(sprintf('%s %s inválido.', get_class($this), $this->cnp));
         }
     }
 
+    /**
+     * @throws DocumentoInvalidoException
+     */
     protected abstract function valida();
 
-    protected abstract function getQuantidadeDigitos();
+    /**
+     * @return int
+     */
+    protected abstract function getQuantidadeNumeros();
 }

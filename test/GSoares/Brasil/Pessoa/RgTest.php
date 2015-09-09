@@ -29,14 +29,6 @@ class RgTest extends PHPUnit_Framework_TestCase
 		new Rg($rg);
 	}
 
-    /**
-     * @expectedException GSoares\Brasil\Pessoa\DocumentoInvalidoException
-     */
-    public function testRgComMuitosDigitos()
-    {
-        new Rg('AB-123654789654123555555555555444');
-    }
-
 	/**
 	 * Tests Rg->numero()
 	 */
@@ -67,7 +59,7 @@ class RgTest extends PHPUnit_Framework_TestCase
     }
 
 	/**
-	 * @return mixed
+	 * @return array
 	 */
 	public function rgInvalidoProvider()
 	{
@@ -75,12 +67,13 @@ class RgTest extends PHPUnit_Framework_TestCase
 			array('4.032.8'),
 			array('XX-BB.012.455'),
 			array('XX-BB.AA.CCC'),
-			array('BBB-55.012.455')
+			array('BBB-55.012.455'),
+            array('AB-123654789654123555555555555444')
 		);
 	}
 	
 	/**
-	 * @return mixed
+	 * @return array
 	 */
 	public function rgValidoProvider()
 	{

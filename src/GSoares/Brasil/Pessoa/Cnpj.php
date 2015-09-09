@@ -27,8 +27,6 @@ class Cnpj extends Cnp implements NumeroFormatavel
 	 */
 	public function valida()
 	{
-        $this->validaNumerosConhecidos();
-
 		$soma = 0;
 		$soma += ($this->cnp[0] * 5);
 		$soma += ($this->cnp[1] * 4);
@@ -72,7 +70,7 @@ class Cnpj extends Cnp implements NumeroFormatavel
     /**
      * @return int
      */
-    protected function getQuantidadeDigitos()
+    protected function getQuantidadeNumeros()
     {
         return 14;
     }
