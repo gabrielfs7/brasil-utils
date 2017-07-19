@@ -27,45 +27,42 @@ class Cnpj extends Cnp implements NumeroFormatavel
 	 */
 	public function valida()
 	{
-		$soma = 0;
-		$soma += ($this->cnp[0] * 5);
-		$soma += ($this->cnp[1] * 4);
-		$soma += ($this->cnp[2] * 3);
-		$soma += ($this->cnp[3] * 2);
-		$soma += ($this->cnp[4] * 9);
-		$soma += ($this->cnp[5] * 8);
-		$soma += ($this->cnp[6] * 7);
-		$soma += ($this->cnp[7] * 6);
-		$soma += ($this->cnp[8] * 5);
-		$soma += ($this->cnp[9] * 4);
-		$soma += ($this->cnp[10] * 3);
-		$soma += ($this->cnp[11] * 2);
-		
-		$d1 = $soma % 11;
-		$d1 = $d1 < 2 ? 0 : 11 - $d1;
-		
-		$soma = 0;
-		$soma += ($this->cnp[0] * 6);
-		$soma += ($this->cnp[1] * 5);
-		$soma += ($this->cnp[2] * 4);
-		$soma += ($this->cnp[3] * 3);
-		$soma += ($this->cnp[4] * 2);
-		$soma += ($this->cnp[5] * 9);
-		$soma += ($this->cnp[6] * 8);
-		$soma += ($this->cnp[7] * 7);
-		$soma += ($this->cnp[8] * 6);
-		$soma += ($this->cnp[9] * 5);
-		$soma += ($this->cnp[10] * 4);
-		$soma += ($this->cnp[11] * 3);
-		$soma += ($this->cnp[12] * 2);
-		
-		$d2 = $soma % 11;
-		$d2 = $d2 < 2 ? 0 : 11 - $d2;
-		
-		if ($this->cnp[12] != $d1 && $this->cnp[13] != $d2) {
-			throw new DocumentoInvalidoException('CNPJ ' . $this->cnp . ' inválido.');
-		}
+        if (!$this->possuiNumeroValido($this->cnp)) {
+            throw new DocumentoInvalidoException("CNPJ [$this->cnp] é inválido.");
+        }
 	}
+
+    /**
+     * @param $cnpj
+     * @return bool
+     */
+    private function possuiNumeroValido($cnpj)
+    {
+        if (strlen($cnpj) != 14) {
+            return false;
+        }
+
+        for ($i = 0, $j = 5, $soma = 0; $i < 12; $i++) {
+            $soma += $cnpj[$i] * $j;
+
+            $j = ($j == 2) ? 9 : $j - 1;
+        }
+
+        $resto = $soma % 11;
+
+        if ($cnpj[12] != ($resto < 2 ? 0 : 11 - $resto)) {
+            return false;
+        }
+
+        for ($i = 0, $j = 6, $soma = 0; $i < 13; $i++) {
+            $soma += $cnpj[$i] * $j;
+            $j = ($j == 2) ? 9 : $j - 1;
+        }
+
+        $resto = $soma % 11;
+
+        return $cnpj[13] == ($resto < 2 ? 0 : 11 - $resto);
+    }
 
     /**
      * @return int

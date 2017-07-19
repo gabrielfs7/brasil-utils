@@ -1,23 +1,22 @@
 <?php
-use \GSoares\Brasil\Pessoa\DocumentoInvalidoException;
 use \GSoares\Brasil\Pessoa\Cnpj;
 
 /**
  * Cnpj test case.
- * 
+ *
  * @author Gabriel Felipe Soares <gabrielfs7@gmail.com>
  */
 class CnpjTest extends PHPUnit_Framework_TestCase
 {
 	/**
 	 * Tests Cnpj->__construct()
-	 * 
+	 *
 	 * @param string $cnpj
 	 * @dataProvider cnpjValidoProvider
 	 */
 	public function testCnpjValidoNaoLancaExcecao($cnpj)
 	{
-		$cnpj = new Cnpj($cnpj);
+		new Cnpj($cnpj);
 	}
 	
 	/**
@@ -29,7 +28,7 @@ class CnpjTest extends PHPUnit_Framework_TestCase
 	 */
 	public function testCnpjInvalidoLancaExcecao($cnpj)
 	{
-		$cnpj = new Cnpj($cnpj);
+		new Cnpj($cnpj);
 	}
 	
 	/**
@@ -37,19 +36,15 @@ class CnpjTest extends PHPUnit_Framework_TestCase
 	 */
 	public function testobtemSomenteNumeroCnpj()
 	{
-		$cnpj = new Cnpj('27.687.164/0001-95');
-		
-		$this->assertEquals($cnpj->numero(), '27687164000195');
+		$this->assertEquals((new Cnpj('27.687.164/0001-95'))->numero(), '27687164000195');
 	}
-	
+
 	/**
 	 * Tests Cnpj->formata()
 	 */
 	public function testObtemCnpjFormatado()
 	{
-		$cnpj = new Cnpj('27687164000195');
-		
-		$this->assertEquals($cnpj->formata(), '27.687.164/0001-95');
+		$this->assertEquals((new Cnpj('27687164000195'))->formata(), '27.687.164/0001-95');
 	}
 
 	/**
@@ -57,12 +52,15 @@ class CnpjTest extends PHPUnit_Framework_TestCase
 	 */
 	public function cnpjInvalidoProvider()
 	{
-		return array(
-			array('99.655.333/1111-99'),
-			array('99655333111199'),
-			array('3377758501'),
-			array('99999999999999')
-		);
+		return [
+			['99.655.333/1111-99'],
+			['99655333111199'],
+			['3377758501'],
+			['99999999999999'],
+			['12312312312332'],
+			['11111111111111'],
+			['00000000000000'],
+		];
 	}
 	
 	/**
@@ -70,10 +68,12 @@ class CnpjTest extends PHPUnit_Framework_TestCase
 	 */
 	public function cnpjValidoProvider()
 	{
-		return array(
-			array('27.687.164/0001-95'),
-			array('27687164000195'),
-			array('27/687/164/0001-95')
-		);
+		return [
+			['27.687.164/0001-95'],
+			['27687164000195'],
+			['27/687/164/0001-95'],
+			['61.210.534/0001-37'],
+            ['23.566.376/0001-63']
+		];
 	}
 }
